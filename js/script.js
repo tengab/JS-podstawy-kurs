@@ -139,7 +139,6 @@ myCar.model = 'Corolla';
 myCar['year'] = 2002;
 console.log(myCar);
 
-*/
 
 function addTwoNumbers(a,b){
 
@@ -153,3 +152,98 @@ var sum = function summaryOfTwoNumbers(a,b){
 }
 console.log(sum(2,3));
 
+
+
+myFunction();
+function myFunction (){
+    console.log('My function works well!!');
+}
+
+
+function bar() {
+    var foo;
+    foo = function(){
+        return 3;
+    }
+    return foo();
+    foo = function(){
+        return 5;
+    }
+    return 5;
+}
+console.log(bar());
+
+
+
+console.log(localStorage.getItem('key1', 'value'));
+console.log(localStorage.getItem('key2', 1));
+console.log(localStorage.getItem('key2', 'true'));
+console.log(localStorage.getItem('key2', 'value'));
+console.log(localStorage.getItem('key3', true));
+console.log(localStorage.getItem('key4', [1,2,3,4,5]));
+
+
+name1 = 'Tomek';
+name2 = 'Waldek';
+name3 = 'Natalia';
+name4 = 'Wojtek';
+
+var counter = 0;
+
+function addPerson (name){
+    localStorage.setItem('person'+counter, name)
+    counter++
+}
+addPerson('Ala');
+
+function removePerson (number) {
+
+    localStorage.removeItem('person' + number)
+}
+removePerson();
+
+
+
+function questionToConfirm() {
+
+        confirmation = confirm('Do you want to answer my question?') ?
+        alert(prompt('Whats your name?'))
+        :
+        null
+}
+
+questionToConfirm();
+
+
+function questionToConfirm() {
+
+    confirmation = confirm('Do you want to answer my question?') ?
+        open(prompt('Whats your name?'))
+        :
+        null
+}
+questionToConfirm();
+
+
+var element = document.getElementsByClassName('p')
+document.getElementsByClassName('p')
+console.log(document.getElementsByClassName('p'))
+console.log(document.getElementsByClassName('p')[0])
+console.log(document.getElementsByClassName('p')[element.length-1])
+
+
+
+
+var firstDiv = document.getElementById('first')
+console.log(firstDiv)
+console.log(firstDiv.getElementsByTagName('div')[0])
+
+*/
+
+var el1 = document.getElementById('first')
+var el2 = document.getElementsByClassName('my')[0]
+var el3 = document.getElementsByClassName('element')[0]
+var el4 = document.getElementsByTagName('div')[0]
+var el5 = document.querySelector('div#first.my.element')
+var el6 = document.querySelectorAll('div#first.my.element')[0]
+console.log(el1, el2, el3, el4, el5, el6);
