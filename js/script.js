@@ -238,7 +238,6 @@ var firstDiv = document.getElementById('first')
 console.log(firstDiv)
 console.log(firstDiv.getElementsByTagName('div')[0])
 
-*/
 
 var el1 = document.getElementById('first')
 var el2 = document.getElementsByClassName('my')[0]
@@ -247,3 +246,110 @@ var el4 = document.getElementsByTagName('div')[0]
 var el5 = document.querySelector('div#first.my.element')
 var el6 = document.querySelectorAll('div#first.my.element')[0]
 console.log(el1, el2, el3, el4, el5, el6);
+
+function addElement(){
+    var newDiv = document.createElement("div"); // tworzymy element
+    var newContent = document.createTextNode("Hi there!"); // tworzymy text ktory ma wypelniac nowy element
+    newDiv.appendChild(newContent); //wkladamy text w nowy element
+
+    var currentDiv = document.querySelector(".main"); //szukamy odniesienia gdzie bedziemy wstawiac nowy stworzony elelement
+    document.body.insertBefore(newDiv, currentDiv); //wstawia element
+}
+addElement();
+
+
+function addElement(tag, text, target){
+    var newEl = document.createElement(tag); // tworzymy element
+    var newContent = document.createTextNode(text); // tworzymy text ktory ma wypelniac nowy element
+    newEl.appendChild(newContent); //wkladamy text w nowy element
+
+   target.appendChild(newEl);
+}
+addElement('div', 'Hellllooooooo', document.querySelector('.main').firstElementChild.nextElementSibling);
+addElement('div', 'Hellllooooooo', document.querySelector('.main div:nth-child(2)'));
+
+
+var main = document.querySelector('.main');
+
+console.log(main)
+
+main.innerText ='aaaaaa';
+
+
+
+document.body.innerHTML = '<div><p>AAAAAAAAAA</p></div>'; // kolejny innerHTML nadpisuje dlatego nie widac diva. rozgryzc
+
+document.querySelector('div').innerHTML = '<input />';
+var input = document.querySelector('input')
+input.setAttribute('placeholder', 'tu wpisz email');
+input.setAttribute('id', 'button');
+
+
+console.log(
+    document.body.style.backgroundColor = 'red'
+)
+console.log(
+    input.style.position = 'fixed',
+    input.style.left = '200px',
+    input.style.top = '200px'
+)
+
+
+
+var btn = document.querySelector('button');
+
+btn.addEventListener(
+    'click',
+    function(event){
+    alert('Heeeeelo!')
+    }
+)
+function makeFunctionThatAddsNumber(number){
+    return function (a){
+        return number + a
+    }
+}
+var add3 = makeFunctionThatAddsNumber(3);
+console.log(add3(2));
+
+
+var btn = document.querySelector('button');
+
+btn.addEventListener(
+    'click',
+    function(event){
+        console.log('one click!', event)
+    }
+)
+
+btn.addEventListener(
+    'dblclick',
+    function(event){
+        console.log('two clicks', event)
+    })
+
+document.addEventListener(
+    'keydown',
+    function(event){
+
+        switch (event.key){
+            case 'ArrowUp':
+                console.log('strzałka w gore')
+                break
+            case 'ArrowDown':
+                console.log('strzałka w dol')
+                break
+            case 'ArrowLeft':
+                console.log('strzałka w lewo')
+                break
+            case 'ArrowRight':
+                console.log('strzałka w prawo')
+                break
+            default:
+                console.log('inny klawisz')
+
+        }
+    });
+*/
+
+
