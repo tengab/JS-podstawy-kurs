@@ -350,6 +350,74 @@ document.addEventListener(
 
         }
     });
+
+
+
+//        jQuery   214087393
+
+
+function jQueryLike(selector){
+var nodeList = document.querySelectorAll(selector)
+    var jQueryLikeObject = {}
+
+    for (var i = 0; i < nodeList.length; i++)
+        jQueryLikeObject[i] = nodeList[1]
+
+    jQueryLikeObject.length = i
+
+        jQueryLikeObject.find = function(selector){
+    return this
+        }
+
+    return jQueryLikeObject
+
+
+}
+
+console.log(jQueryLike('div'))
+console.log(jQueryLike('div').find('ul'))
+
+
+
+
+
+console.log($('ul li'))
+console.log($('.class-one').find('li'))
+
+var bodyEls = document.querySelectorAll('body *')
+
+for (var i = 0; i < bodyEls.length; i++)
+bodyEls[i].className = 'red'
+
+
+$('body *').addClass('green')
+
+
+
+function newPMultiple(i) {
+    for (var i = 1; i <= 15; i++)
+        $('<p>'+i+'</p>').appendTo($('body'))
+}
+newPMultiple(1);
+
+
+
+$('body').append(
+    $('<a> link </a>')
+)
+$('a').attr('href', 'http://wp.pl')
+
 */
 
+$('<div>').appendTo($('body'));
+
+$('div').text('some text');
+
+$('div').append(
+    $('<input>')
+)
+
+$('input').val('a@a.pl')
+
+$('input').attr('placeholder', 'E-mail')
 
