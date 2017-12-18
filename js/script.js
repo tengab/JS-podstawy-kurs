@@ -407,7 +407,7 @@ $('body').append(
 )
 $('a').attr('href', 'http://wp.pl')
 
-*/
+
 
 $('<div>').appendTo($('body'));
 
@@ -421,3 +421,47 @@ $('input').val('a@a.pl')
 
 $('input').attr('placeholder', 'E-mail')
 
+*/
+
+//   AJAX
+
+// var div = document.createElement('div')
+//
+// div.style.position = 'fixed'
+// div.style.top = '0px'
+// div.style.left = '0px'
+// div.style.width = '20px'
+// div.style.height = '20px'
+// div.style.backgroundColor = 'red'
+//
+// document.body.appendChild(div)
+//
+// var intervalID = setInterval(
+//     function () {
+//         var currentPosY = parseInt(div.style.top.slice(0, -2))
+//         div.style.top = currentPosY + 1 +'px'
+//         if (currentPosY > (window.innerHeight-50)) {
+//             clearInterval(intervalID)
+//             div.remove()
+//         }
+//     },
+//     10
+// )
+
+
+fetch('https://randomuser.me/api')
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (data) {
+        console.log(data.results[0].name.first, data.results[0].name.last, data.results[0].picture.large)
+    })
+
+
+fetch('https://randomuser.me/api')
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (data) {
+        document.getElementById("first").innerHTML = "<p>"+data.results[0].name.first + "</p><p>" + data.results[0].name.last + '</p> <img src=' + data.results[0].picture.large + '> <p>' + data.results[0].email + '</p>'
+    })
