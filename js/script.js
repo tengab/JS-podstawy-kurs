@@ -449,19 +449,32 @@ $('input').attr('placeholder', 'E-mail')
 // )
 
 
-fetch('https://randomuser.me/api')
-    .then(function (response) {
-        return response.json()
+// fetch('https://randomuser.me/api')
+//     .then(function (response) {
+//         return response.json()
+//     })
+//     .then(function (data) {
+//         console.log(data.results[0].name.first, data.results[0].name.last, data.results[0].picture.large)
+//     })
+//
+//
+// fetch('https://randomuser.me/api')
+//     .then(function (response) {
+//         return response.json()   <-- ?????
+//     })
+//     .then(function (data) {
+//         document.getElementById("first").innerHTML = "<p>"+data.results[0].name.first + "</p><p>" + data.results[0].name.last + '</p> <img src=' + data.results[0].picture.large + '> <p>' + data.results[0].email + '</p>'
+//     })
+
+Promise.all(
+    [
+        fetch('https://randomuser.me/api'),
+        fetch('https://randomuser.me/api')
+    ])
+    .then(function(dataOfTwoUsers) {
+        console.log(dataOfTwoUsers)
     })
-    .then(function (data) {
-        console.log(data.results[0].name.first, data.results[0].name.last, data.results[0].picture.large)
+    .catch(function() {
+            console.log('Errorrr!')
     })
 
-
-fetch('https://randomuser.me/api')
-    .then(function (response) {
-        return response.json()
-    })
-    .then(function (data) {
-        document.getElementById("first").innerHTML = "<p>"+data.results[0].name.first + "</p><p>" + data.results[0].name.last + '</p> <img src=' + data.results[0].picture.large + '> <p>' + data.results[0].email + '</p>'
-    })
